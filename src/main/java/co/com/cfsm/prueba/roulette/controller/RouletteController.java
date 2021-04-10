@@ -15,6 +15,7 @@ import co.com.cfsm.prueba.commons.dto.Notification;
 import co.com.cfsm.prueba.commons.exeptions.RouletteBusinessException;
 import co.com.cfsm.prueba.roulette.dto.BetRequestDto;
 import co.com.cfsm.prueba.roulette.dto.CreateRouletteDto;
+import co.com.cfsm.prueba.roulette.enums.RouletteStateType;
 import co.com.cfsm.prueba.roulette.facade.RouletteFacade;
 import co.com.cfsm.prueba.roulette.service.RouletteServices;
 import lombok.AllArgsConstructor;
@@ -45,7 +46,7 @@ public class RouletteController {
 		Notification notification = Notification.builder().code(NotificationCode.RLT_U_1.name())
 				.description(NotificationCode.RLT_U_1.getDescription()).build();
 
-		rouletteServices.opening(id);
+		rouletteServices.changeState(id, RouletteStateType.OPENING);
 
 		return new ApiResponse<>(StringUtils.EMPTY, notification);
 	}
@@ -59,5 +60,7 @@ public class RouletteController {
 
 		return new ApiResponse<>(rouletteFacade.bet(documentNumber, betRequestDto), notification);
 	}
+
+
 
 }

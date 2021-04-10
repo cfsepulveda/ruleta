@@ -7,6 +7,7 @@ import co.com.cfsm.prueba.commons.NotificationCode;
 import co.com.cfsm.prueba.commons.exeptions.RouletteBusinessException;
 import co.com.cfsm.prueba.roulette.dto.BetRequestDto;
 import co.com.cfsm.prueba.roulette.dto.CreateRouletteDto;
+import co.com.cfsm.prueba.roulette.enums.RouletteStateType;
 import co.com.cfsm.prueba.roulette.mappers.RouletteMapper;
 import co.com.cfsm.prueba.roulette.model.Bet;
 import co.com.cfsm.prueba.roulette.model.Roulette;
@@ -26,16 +27,18 @@ public class RouletteServices {
 		return rouletteRepository.save(roulette).getId();
 	}
 
-	public String opening(String id) throws RouletteBusinessException {
+	public String changeState(String id, RouletteStateType rouletteStateType)
+			throws RouletteBusinessException {
 		Roulette roulette = rouletteRepository.findById(id)
 				.orElseThrow(() -> new RouletteBusinessException(NotificationCode.RLT_F_1));
-		roulette.setState("opening");
+		roulette.setState(rouletteStateType.getValue());
 		return rouletteRepository.save(roulette).getState();
 	}
 
 	public Optional<String> findById(String id) {
 		return rouletteRepository.findById(id)
-				.filter(roulette -> roulette.getState().equalsIgnoreCase("opening"))
+				.filter(roulette -> roulette.getState()
+						.equalsIgnoreCase(RouletteStateType.OPENING.getValue()))
 				.map(Roulette::getId);
 	}
 

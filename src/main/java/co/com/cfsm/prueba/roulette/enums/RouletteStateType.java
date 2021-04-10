@@ -6,8 +6,9 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public enum ColorType {
-	RED("red"), BLACK("black");
+public enum RouletteStateType {
+	OPENING("opening"), 
+	CLOSE("close");
 
 	private String value;
 
