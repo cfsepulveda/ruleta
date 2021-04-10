@@ -1,7 +1,6 @@
-package co.com.cfsm.prueba.roulette.model;
+package co.com.cfsm.prueba.user.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.math.BigDecimal;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
@@ -10,16 +9,16 @@ import lombok.Data;
 
 @Data
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
-@RedisHash("roulettes")
-public class Roulette {
+@RedisHash("users")
+public class User {
 
   @Id
-  private String id;
+  private String documentNumber;
 
-  private String name;
+  private String firstName;
 
-  private String state;
+  private String lastName;
 
-  private List<Bet> bets;
+  private BigDecimal credit;
 
 }

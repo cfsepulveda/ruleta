@@ -1,11 +1,19 @@
-package co.com.cfsm.roulette.exeptions;
+package co.com.cfsm.prueba.commons.exeptions;
 
+import co.com.cfsm.prueba.commons.NotificationCode;
+import lombok.Getter;
+
+@Getter
 public class RouletteBusinessException extends Exception {
 
-	private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 4857617004853307509L;
 
-	public RouletteBusinessException(String message) {
-		super(message);
-	}
+  private final NotificationCode errorCode;
+
+  public RouletteBusinessException(NotificationCode errorCode) {
+    super(errorCode.getDescription());
+    this.errorCode = errorCode;
+  }
+
 
 }

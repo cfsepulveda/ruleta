@@ -1,14 +1,12 @@
-package co.com.cfsm.roulette.dto;
+package co.com.cfsm.prueba.roulette.dto;
 
 import lombok.Data;
 
 @Data
 public class CreateRouletteDto {
 
-	private static final String STATE_BY_DEFAULT = "new";
+  private static final String STATE_BY_DEFAULT = "closed";
 
-	private String name;
-
-	private String state = STATE_BY_DEFAULT;
+  private String state = STATE_BY_DEFAULT;
 
 }

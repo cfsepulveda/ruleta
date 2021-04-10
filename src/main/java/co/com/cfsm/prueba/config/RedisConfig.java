@@ -1,4 +1,4 @@
-package co.com.cfsm.roulette.config;
+package co.com.cfsm.prueba.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
