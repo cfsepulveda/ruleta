@@ -30,11 +30,10 @@ public class RouletteFacade {
 	public String bet(String documentNumber, BetRequestDto betRequestDto)
 			throws RouletteBusinessException {
 		validateRequestBet(betRequestDto);
-		// isOpenRoulette(betRequestDto.getIdRoulette());
-		// hasCredit(documentNumber, betRequestDto.getAmount());
-		// spendCustomerCredit(documentNumber, betRequestDto.getAmount());
-		// return saveBet(betRequestDto, documentNumber);
-		return "";
+		isOpenRoulette(betRequestDto.getIdRoulette());
+		hasCredit(documentNumber, betRequestDto.getAmount());
+		spendCustomerCredit(documentNumber, betRequestDto.getAmount());
+		return saveBet(betRequestDto, documentNumber);
 	}
 
 
