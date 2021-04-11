@@ -14,14 +14,17 @@ public enum NotificationCode {
   USR_F_4("User error updating ", HttpStatus.INTERNAL_SERVER_ERROR),
 
   
-  RLT_S_1("Roulete was created successfully",HttpStatus.OK),
-  RLT_S_2("Roulete query successfully",HttpStatus.OK),
-  RLT_U_1("Roulete opening successfully",HttpStatus.OK),
-  RLT_U_2("Roulete closed successfully",HttpStatus.OK),
+  RLT_S_1("Roulete was created successfully", HttpStatus.OK),
+  RLT_S_2("Roulete query successfully", HttpStatus.OK),
+  RLT_U_1("Roulete opening successfully", HttpStatus.OK),
+  RLT_U_2("Roulete closed successfully", HttpStatus.OK),
   RLT_F_1("Roulete id not found", HttpStatus.NOT_FOUND),
   RLT_F_2("Roulete is closed", HttpStatus.FORBIDDEN),
   
-  BET_S_1("Bet was created successfully",HttpStatus.OK),
+  BET_S_1("Bet was created successfully", HttpStatus.OK),
+  BET_F_1("Bet sent color or number", HttpStatus.BAD_REQUEST),
+  
+
 
   
   JVE_F_1(StringUtils.EMPTY,HttpStatus.BAD_REQUEST);

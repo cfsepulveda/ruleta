@@ -29,10 +29,12 @@ public class RouletteFacade {
 
 	public String bet(String documentNumber, BetRequestDto betRequestDto)
 			throws RouletteBusinessException {
-		isOpenRoulette(betRequestDto.getIdRoulette());
-		hasCredit(documentNumber, betRequestDto.getAmount());
-		spendCustomerCredit(documentNumber, betRequestDto.getAmount());
-		return saveBet(betRequestDto, documentNumber);
+		validateRequestBet(betRequestDto);
+		// isOpenRoulette(betRequestDto.getIdRoulette());
+		// hasCredit(documentNumber, betRequestDto.getAmount());
+		// spendCustomerCredit(documentNumber, betRequestDto.getAmount());
+		// return saveBet(betRequestDto, documentNumber);
+		return "";
 	}
 
 
@@ -130,5 +132,15 @@ public class RouletteFacade {
 
 	}
 
-
+	private void validateRequestBet(BetRequestDto betRequestDto) throws RouletteBusinessException {
+		if (Objects.nonNull(betRequestDto.getNumber())
+				|| Objects.nonNull(betRequestDto.getColor())) {
+			if (Objects.nonNull(betRequestDto.getNumber())
+					&& Objects.nonNull(betRequestDto.getColor())) {
+				throw new RouletteBusinessException(NotificationCode.BET_F_1);
+			}
+		} else {
+			throw new RouletteBusinessException(NotificationCode.BET_F_1);
+		}
+	}
 }
