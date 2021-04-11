@@ -15,6 +15,7 @@ import co.com.cfsm.prueba.commons.NotificationCode;
 import co.com.cfsm.prueba.commons.exeptions.RouletteBusinessException;
 import co.com.cfsm.prueba.roulette.dto.BetRequestDto;
 import co.com.cfsm.prueba.roulette.dto.CreateRouletteDto;
+import co.com.cfsm.prueba.roulette.dto.RouletteResponseDto;
 import co.com.cfsm.prueba.roulette.enums.RouletteStateType;
 import co.com.cfsm.prueba.roulette.mappers.RouletteMapper;
 import co.com.cfsm.prueba.roulette.model.Bet;
@@ -48,6 +49,10 @@ public class RouletteServices {
 				.filter(roulette -> roulette.getState()
 						.equalsIgnoreCase(RouletteStateType.OPENING.getValue()))
 				.map(Roulette::getId);
+	}
+
+	public List<RouletteResponseDto> findAll() {
+		return mapper.rouletteToRouletteResponseDto(rouletteRepository.findAll());
 	}
 
 	public String saveBet(BetRequestDto betRequestDto, String documentNumber) {

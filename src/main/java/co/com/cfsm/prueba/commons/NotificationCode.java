@@ -15,6 +15,7 @@ public enum NotificationCode {
 
   
   RLT_S_1("Roulete was created successfully",HttpStatus.OK),
+  RLT_S_2("Roulete query successfully",HttpStatus.OK),
   RLT_U_1("Roulete opening successfully",HttpStatus.OK),
   RLT_U_2("Roulete closed successfully",HttpStatus.OK),
   RLT_F_1("Roulete id not found", HttpStatus.NOT_FOUND),
