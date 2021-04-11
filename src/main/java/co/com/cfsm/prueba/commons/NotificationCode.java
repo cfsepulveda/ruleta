@@ -11,9 +11,12 @@ public enum NotificationCode {
   USR_F_1("User already exists", HttpStatus.FORBIDDEN),
   USR_F_2("User not found", HttpStatus.NOT_FOUND),
   USR_F_3("User not credit", HttpStatus.NOT_FOUND),
+  USR_F_4("User error updating ", HttpStatus.INTERNAL_SERVER_ERROR),
+
   
   RLT_S_1("Roulete was created successfully",HttpStatus.OK),
   RLT_U_1("Roulete opening successfully",HttpStatus.OK),
+  RLT_U_2("Roulete closed successfully",HttpStatus.OK),
   RLT_F_1("Roulete id not found", HttpStatus.NOT_FOUND),
   RLT_F_2("Roulete is closed", HttpStatus.FORBIDDEN),
   

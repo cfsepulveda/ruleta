@@ -1,5 +1,7 @@
 package co.com.cfsm.prueba.roulette.controller;
 
+import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import javax.validation.Valid;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +20,7 @@ import co.com.cfsm.prueba.roulette.dto.CreateRouletteDto;
 import co.com.cfsm.prueba.roulette.enums.RouletteStateType;
 import co.com.cfsm.prueba.roulette.facade.RouletteFacade;
 import co.com.cfsm.prueba.roulette.service.RouletteServices;
+import co.com.cfsm.prueba.user.dto.UserDto;
 import lombok.AllArgsConstructor;
 
 @RestController()
@@ -38,7 +41,7 @@ public class RouletteController {
 
 		return new ApiResponse<>(rouletteServices.create(createRouletteDto), notification);
 	}
-
+	
 	@PutMapping("/{id}")
 	public ApiResponse<String> opening(@PathVariable("id") String id)
 			throws RouletteBusinessException {
@@ -59,6 +62,16 @@ public class RouletteController {
 				.description(NotificationCode.BET_S_1.getDescription()).build();
 
 		return new ApiResponse<>(rouletteFacade.bet(documentNumber, betRequestDto), notification);
+	}
+
+	@PutMapping("/{id}/close")
+	public ApiResponse<List<UserDto>> close(@PathVariable("id") String id)
+			throws RouletteBusinessException, NoSuchAlgorithmException {
+
+		Notification notification = Notification.builder().code(NotificationCode.RLT_U_2.name())
+				.description(NotificationCode.RLT_U_2.getDescription()).build();
+
+		return new ApiResponse<>(rouletteFacade.closeBet(id), notification);
 	}
 
 

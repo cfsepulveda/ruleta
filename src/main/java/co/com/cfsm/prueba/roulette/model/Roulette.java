@@ -1,6 +1,5 @@
 package co.com.cfsm.prueba.roulette.model;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
