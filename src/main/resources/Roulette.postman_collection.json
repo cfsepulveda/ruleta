@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "62c2ab11-f622-4d2c-abf9-a6d583683b3a",
+		"name": "Roulette",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "0. Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"documentNumber\": \"27633226\",\r\n    \"firstName\": \"Lina\",\r\n    \"lastName\": \"Melo\",\r\n    \"credit\":\"100\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/prueba/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"prueba",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1. Create Roulette",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/prueba/roulette",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"prueba",
+						"roulette"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. Opening Roulette",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/prueba/roulette/ec1ce48f-8416-4c78-b3a9-c40a0bc1cda0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"prueba",
+						"roulette",
+						"ec1ce48f-8416-4c78-b3a9-c40a0bc1cda0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. Bet Roulette",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Document-Number",
+						"value": "27633226",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idRoulette\": \"ec1ce48f-8416-4c78-b3a9-c40a0bc1cda0\",\r\n    \"number\": \"12\",\r\n    \"color\": \"red\",\r\n    \"amount\": 100\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/prueba/roulette/bet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"prueba",
+						"roulette",
+						"bet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. Close Roulette",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/prueba/roulette/ec1ce48f-8416-4c78-b3a9-c40a0bc1cda0/close",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"prueba",
+						"roulette",
+						"ec1ce48f-8416-4c78-b3a9-c40a0bc1cda0",
+						"close"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. Get roulette list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/prueba/roulette",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"prueba",
+						"roulette"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
